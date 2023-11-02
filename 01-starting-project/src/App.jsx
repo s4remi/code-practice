@@ -10,13 +10,16 @@ function Header() {
     </header>
   );
 }
-
+// nested components,
+// it would be a good practice to put each component in separate file
 function App() {
   return (
     <div>
       <Header />
       <main>
         <h2>Time to get started!</h2>
+        <h3>next time </h3>
+        <Header />
       </main>
     </div>
   );
