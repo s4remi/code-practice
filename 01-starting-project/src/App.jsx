@@ -5,10 +5,11 @@ import CoreConcept from "./components/CoreConcept.jsx";
 import TabButton from "./components/tabButton.jsx";
 import { Component } from "react";
 import { useState } from "react";
+import { EXAMPLES } from "./data.js";
 
 // nested components,
 function App() {
-  const [currentTab, setCurrentTab] = useState("please click a button");
+  const [currentTab, setCurrentTab] = useState("components");
   function handleSelect(selectButton) {
     setCurrentTab(selectButton);
     console.log(selectButton);
@@ -46,7 +47,13 @@ function App() {
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
-          {currentTab}
+          <div id="tab-content">
+            <h3>{EXAMPLES[currentTab].title}</h3>
+            <p>{EXAMPLES[currentTab].description}</p>
+            <pre>
+              <code>{EXAMPLES[currentTab].code}</code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
