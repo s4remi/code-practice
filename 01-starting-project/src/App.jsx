@@ -16,6 +16,18 @@ function App() {
     console.log(currentTab);
   }
   console.log("APP COMPONENT EXECUTING");
+  let tabContent = <p>Please select the topic.</p>;
+  if (currentTab) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[currentTab].title}</h3>
+        <p>{EXAMPLES[currentTab].description}</p>
+        <pre>
+          <code>{EXAMPLES[currentTab].code}</code>
+        </pre>
+      </div>
+    );
+  }
   return (
     <div>
       <Header />
@@ -47,16 +59,7 @@ function App() {
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
-          {!currentTab && <p>please select the topic.</p>}
-          {currentTab && (
-            <div id="tab-content">
-              <h3>{EXAMPLES[currentTab].title}</h3>
-              <p>{EXAMPLES[currentTab].description}</p>
-              <pre>
-                <code>{EXAMPLES[currentTab].code}</code>
-              </pre>
-            </div>
-          )}
+          {tabContent}
         </section>
       </main>
     </div>
