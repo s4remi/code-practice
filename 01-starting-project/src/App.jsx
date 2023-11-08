@@ -9,7 +9,7 @@ import { EXAMPLES } from "./data.js";
 
 // nested components,
 function App() {
-  const [currentTab, setCurrentTab] = useState("components");
+  const [currentTab, setCurrentTab] = useState();
   function handleSelect(selectButton) {
     setCurrentTab(selectButton);
     console.log(selectButton);
@@ -40,20 +40,23 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect("component")}>
+            <TabButton onSelect={() => handleSelect("components")}>
               Components
             </TabButton>
             <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
-          <div id="tab-content">
-            <h3>{EXAMPLES[currentTab].title}</h3>
-            <p>{EXAMPLES[currentTab].description}</p>
-            <pre>
-              <code>{EXAMPLES[currentTab].code}</code>
-            </pre>
-          </div>
+          {!currentTab ? <p>please select the topic.</p> : null}
+          {currentTab ? (
+            <div id="tab-content">
+              <h3>{EXAMPLES[currentTab].title}</h3>
+              <p>{EXAMPLES[currentTab].description}</p>
+              <pre>
+                <code>{EXAMPLES[currentTab].code}</code>
+              </pre>
+            </div>
+          ) : null}
         </section>
       </main>
     </div>
