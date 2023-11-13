@@ -10,16 +10,16 @@ export default function App() {
     console.log("Got data!", data);
   }
   testBack();
+  const photos = [{ url: "", caption: "" }];
+  function renderPhotos() {
+    return <div>{photos.map()}</div>;
+  }
   return (
     <div>
       <AppNavBar />
       <h1>Photo Sharing</h1>
-      <div>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis
-        pariatur tenetur impedit exercitationem, excepturi sint dolores nulla
-        voluptas provident, iusto nihil et ullam cumque amet voluptates fugit
-        eio!
-      </div>
+      <h2>Photos</h2>
+      {renderPhotos()}
       <AppFooter />
     </div>
   );
