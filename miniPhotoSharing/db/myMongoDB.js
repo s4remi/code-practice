@@ -12,13 +12,13 @@ function MyMongoDB() {
     return { client, db };
   }
 
-  myDB.getPhotos = async function (query = {}) {
+  myDB.getPhotos = async function ({ query = {}, limit = 20 } = {}) {
     const { client, db } = connect();
     try {
       const photos = await db
         .collection("photos")
         .find(query)
-        .limit(20)
+        .limit(limit)
         .toArray();
       return photos;
     } finally {

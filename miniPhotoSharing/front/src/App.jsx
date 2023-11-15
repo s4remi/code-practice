@@ -75,7 +75,7 @@ export default function App() {
 
       <RangeWidth width={10} />
       <SearchBar />
-      <PhotosGallery photos={photos.slice(30, 47)} />
+      <PhotosGallery photos={photos} />
       <ButtonVote name="ali" />
       <ButtonVote name="john" />
       <AppFooter />
