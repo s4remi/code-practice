@@ -6,11 +6,12 @@ export function PhotosGallery({ photos }) {
   function renderPhotos() {
     function renderPhoto(photo) {
       return (
-        <div>
-          <div>{photo.url}</div>
+        <div className="col-4">
+          <img src={photo.url} alt={photo._caption} />
           <div>{photo._id}</div>
-          <div>{photo._caption}</div>
-          <div>{photo._owner}</div>
+          <div>{photo.caption}</div>
+          <div>{photo.owner}</div>
+          <div>{photo.timestamp}</div>
         </div>
       );
     }
@@ -26,6 +27,7 @@ PhotosGallery.propTypes = {
       url: PropTypes.string.isRequired,
       owner: PropTypes.string.isRequired,
       caption: PropTypes.string.isRequired,
+      timestamp: PropTypes.number.isRequired,
     })
   ),
 };
