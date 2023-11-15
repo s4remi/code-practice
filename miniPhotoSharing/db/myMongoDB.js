@@ -15,7 +15,11 @@ function MyMongoDB() {
   myDB.getPhotos = async function (query = {}) {
     const { client, db } = connect();
     try {
-      const photos = await db.collection("photos").find(query).toArray();
+      const photos = await db
+        .collection("photos")
+        .find(query)
+        .limit(20)
+        .toArray();
       return photos;
     } finally {
       await client.close();

@@ -1,6 +1,8 @@
 import { PropTypes } from "prop-types";
+import { useState } from "react";
 
 export function PhotosGallery({ photos }) {
+  let [photos, setPhotos] = useState([]);
   console.log("Render PhotoGallery photos=", photos);
 
   function renderPhotos() {
