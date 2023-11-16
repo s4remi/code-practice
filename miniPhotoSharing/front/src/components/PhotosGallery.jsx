@@ -55,7 +55,7 @@ PhotosGallery.propTypes = {
       url: PropTypes.string.isRequired,
       owner: PropTypes.string.isRequired,
       caption: PropTypes.string.isRequired,
-      timestamp: PropTypes.number.isRequired,
+      timestamp: PropTypes.string.isRequired,
     })
   ),
 };

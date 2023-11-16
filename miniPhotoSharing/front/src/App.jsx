@@ -2,7 +2,28 @@ import { AppNavBar } from "./layout/AppNavBar";
 import { AppFooter } from "./layout/AppFooter";
 import { ButtonVote } from "./components/ButtonVote";
 import { PhotosGallery } from "./components/PhotosGallery";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+
+function SearchBar02() {
+  const refSearch = useRef();
+  function onInput(evt) {
+    console.log("SearchBar OnInput", refSearch.current.value);
+    //setQuery(evt.target.value);
+  }
+  return (
+    <div>
+      <label className="form-label">
+        Search:{" "}
+        <input
+          ref={refSearch}
+          className="form-control"
+          type="search"
+          onInput={onInput}
+        ></input>
+      </label>
+    </div>
+  );
+}
 
 function SearchBar() {
   let [query, setQuery] = useState("");
@@ -13,13 +34,15 @@ function SearchBar() {
   }
   return (
     <div>
-      Search{" "}
-      <input
-        className="input-control"
-        type="text"
-        onInput={onInput}
-        value={query}
-      />
+      <label className="form-label">
+        Search:{" 36:52 min"}
+        <input
+          className="form-control"
+          type="text"
+          onInput={onInput}
+          value={query}
+        />
+      </label>
     </div>
   );
 }
